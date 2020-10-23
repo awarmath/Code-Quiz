@@ -1,0 +1,20 @@
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.high-score {
+    font-size: 16px;
+    color: gray;
+    display: inline-block;
+}
+  
+.timer {
+    font-size: 16px;
+    color: red;
+    display: inline-block;
+}
+ 
