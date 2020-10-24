@@ -74,12 +74,12 @@ var correct;
 
 
 // Cycle through the questions
-function generateQuestions(){
+function generateQuizQuestion(){
     if (currentQuestionIndex === finalQuestionIndex){
         return showScore();
     } 
     var currentQuestion = Questions[currentQuestionIndex];
-    questionsEl.innerHTML = "<h3>" + currentQuestion.question + "</h3>";
+    questionsEl.innerHTML = "<p>" + currentQuestion.question + "</p>";
     buttonA.innerHTML = currentQuestion.choiceA;
     buttonB.innerHTML = currentQuestion.choiceB;
     buttonC.innerHTML = currentQuestion.choiceC;
@@ -89,7 +89,7 @@ function generateQuestions(){
 // Start quiz and timer while hiding the opening html
 function startQuiz(){
     startQuizDiv.style.display = "none";
-    generateQuestions();
+    generateQuizQuestion();
 
     //Timer
     timerInterval = setInterval(function() {
