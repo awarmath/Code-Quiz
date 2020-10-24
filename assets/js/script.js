@@ -2,7 +2,7 @@
 var quizBody = document.getElementById("quiz");
 var resultsEl = document.getElementById("result");
 var finalScoreEl = document.getElementById("finalScore");
-var gameoverDiv = document.getElementById("gameover");
+var quizoverDiv = document.getElementById("quizover");
 var questionsEl = document.getElementById("questions");
 var quizTimer = document.getElementById("timer");
 var startQuizButton = document.getElementById("startbtn");
@@ -28,7 +28,7 @@ var Questions = [
         choiceB: "script",
         choiceC: "javacript",
         choiceD: "js",
-        correctAnswer: "B"
+        correctAnswer: "b"
     },
     {
         question: "How do you create a function in JavaScript?",
@@ -36,7 +36,7 @@ var Questions = [
         choiceB: "function:myFunction()",
         choiceC: "function myFunction()",
         choiceD: "myFunction function()",
-        correctAnswer: "C"
+        correctAnswer: "c"
     },
     {
         question: "How do you call a function?",
@@ -44,7 +44,7 @@ var Questions = [
         choiceB: "call function myFunction()",
         choiceC: "call myFunction()",
         choiceD: "Call my function()",
-        correctAnswer: "A"
+        correctAnswer: "a"
     },
     {
         question: "How do you round the number 7.25 to the nearest integer?",
@@ -52,7 +52,7 @@ var Questions = [
         choiceB: "Math.round(7.25)",
         choiceC: "round(7.25)",
         choiceD: "rnd(7.25)",
-        correctAnswer: "B"
+        correctAnswer: "b"
     },
     {
         question: "How do you declare a JavaScript variable?",
@@ -60,7 +60,7 @@ var Questions = [
         choiceB: "v carName",
         choiceC: "var carName",
         choiceD: "var (carName)",
-        correctAnswer: "C"
+        correctAnswer: "c"
     },
 ];
 
@@ -104,17 +104,26 @@ function startQuiz(){
     quizBody.style.display = "block";
 }
 
+// display score at end of quiz
+function showScore(){
+    quizBody.style.display = "none"
+    quizoverDiv.style.display = "flex";
+    clearInterval(timerInterval);
+    highscoreInputName.value = "";
+    finalScoreEl.innerHTML = "You got " + score + " out of " + Questions.length + " correct!";
+}
+
 // Check answer 
 function checkAnswer(answer){
     correct = Questions[currentQuestionIndex].correctAnswer;
 
     if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
         score++;
-        alert("That Is Correct!");
+        alert("Correct!");
         currentQuestionIndex++;
         generateQuizQuestion();
     }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
-        alert("That Is Incorrect.")
+        alert("Incorrect")
         currentQuestionIndex++;
         generateQuizQuestion();
     }else{
