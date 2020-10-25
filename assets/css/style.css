@@ -20,40 +20,45 @@
 }
 
 h1 {
-    margin-bottom: 5rem;
+    margin-bottom: 5%;
 }
 
 h2 {
-    margin-top: -1rem;
+    margin-top: -1%;
+    font-weight: lighter;
 }
 
-#questions {
+#questions, #finalScore {
     color: black;
     text-align: center;
-    font-size: xx-large;
+    width: 100%;
+    font-size: 28px;
+    padding: 10%;
 }
 
 #timer{
     color: red;
-    font-size: 16px;
-    text-shadow: .5px .5px black;
-    text-align: center;
+    font-size: 32px;
+    text-align: right;
 }
 
 button {
     background-color: #167219;
-    width: 40%;
+    width: 250px;
     padding: 20px 30px;
     text-align: center;
     font-size: 16px;
+    font-weight: bold;
     color: white;
     border-radius: 10px;
-    display: block;
+    display: grid;
+    margin: auto;
 }
 
 button:hover {
     background-color: white;
     color: #167219;
+    cursor: pointer;
 }
  
 #quizover {
@@ -61,14 +66,48 @@ button:hover {
     display: none;
     flex-direction: column;
     align-items: center;
+    padding: 10%;
 }
-#initials{
-    margin: 5%;
-    height: 10%;
-}
-#finalScore{
-    padding-bottom: 10%;
-    font-size: x-large;
-    font-family: sans-serif;
+
+#initials {
+    color: #167219;
     font-weight: bold;
 }
+
+#highscore-page{
+    display: none;
+    width: 50%;
+    padding-bottom: 2px;
+}
+
+#highscore-header{
+    display:flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    background-color: #167219;
+    color: white;
+}
+#highscore-container{
+    width: 75%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#highscore-name{
+    display: inline-block;
+    padding-left: 30%;
+    font-weight: bold;
+}
+
+#highscore-score{
+    float: right;
+    padding-right: 30%;
+    font-weight: bold;
+}
+
+#endGameBtns{
+    display: none;
+}
+
