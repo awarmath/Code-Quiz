@@ -66,10 +66,11 @@ var Questions = [
 //variables needed
 var finalQuestionIndex = Questions.length;
 var currentQuestionIndex = 0;
-var timeLeft = 76;
+var timeLeft = 75;
 var timerInterval;
 var score = 0;
 var correct;
+var incorrectpenalty = 10;
 
 
 // Cycle through the questions
@@ -119,7 +120,7 @@ submitScoreBtn.addEventListener("click", function highscore(){
     
     
     if(highscoreInputName.value === "") {
-        displayMessage("Initials cannot be blank");
+        alert("Initials cannot be blank");
     } else {
         var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
         var currentUser = highscoreInputName.value.trim();
@@ -180,7 +181,7 @@ function replayQuiz(){
     highscoreContainer.style.display = "none";
     quizoverDiv.style.display = "none";
     startQuizDiv.style.display = "flex";
-    timeLeft = 76;
+    timeLeft = 75;
     score = 0;
     currentQuestionIndex = 0;
 }
@@ -196,6 +197,11 @@ function checkAnswer(answer){
         generateQuizQuestions();
     }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
         alert("That Is Incorrect.")
+        timeLeft -= 10;
+        if (timeLeft < 0) {
+            timeLeft = 0
+        }
+        quizTimer.textContent = timeLeft
         currentQuestionIndex++;
         generateQuizQuestions();
     }else{
@@ -203,7 +209,6 @@ function checkAnswer(answer){
     }
 }
 
-document.getElementById('')
-
 // Button starts quiz and timer
 startQuizButton.addEventListener("click",startQuiz);
+

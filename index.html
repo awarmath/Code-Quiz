@@ -8,18 +8,18 @@
     </head>
     
     <body>
-        <div class="container">
+        <div class="main">
             <div id="startpage">
                 <h1>Coding Quiz Challenge</h1>
                 <h2>Try to answer the following code-related questions within the time limit.</h2>
-                <h2>Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</h2>
+                <h2>Keep in mind that incorrect answers will penalize your time by 10 seconds!</h2>
                 <button id="startbtn">Start Quiz</button>
                 <br>
                 <button id="startPageHighScore" onclick="showHighscore()"> High Scores </button>
             </div>
         
             <div id="quiz">
-                <div id="timer"> Seconds Left: </div>
+                <div id="timer"> Time Left: </div>
                 <div id="questions"></div>
                     <button id="a" onclick="checkAnswer('a')">A</button>
                     <button id="b" onclick="checkAnswer('b')">B</button>
@@ -45,7 +45,7 @@
                 </div>
                 <div id="endGameBtns">
                     <button id="playAgain" onclick="replayQuiz()">Play Again</button>
-                    <button id="clearHighscore" onclick="clearScore()">Clear Highscores</button>
+                    <button id="clearHighscore" onclick="clearScore()">Clear High Scores</button>
             </div>
 
         </div>
